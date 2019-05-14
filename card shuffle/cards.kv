@@ -1,0 +1,53 @@
+<Spacer@Widget>:
+    size_hint_x: 0.25
+
+<Card@Widget>:
+    size_hint_x: None
+    size_hint_y: None
+    image_file: "pic/gray_back.png"
+
+    size: [72,96]
+    canvas:
+        Rectangle:
+            source: self.image_file
+            size: self.size
+            pos: self.pos
+
+
+<CardTable>:
+    card0:card0
+    card1:card1
+    card2:card2
+    card3:card3
+    card4:card4
+    orientation: "vertical"
+    BoxLayout:
+        Spacer:
+        Card:
+            id: card0
+
+        Spacer:
+        Card:
+            id: card1
+
+        Spacer:
+        Card:
+            id: card2
+
+        Spacer:
+        Card:
+            id: card3
+
+        Spacer:
+        Card:
+            id: card4
+        Spacer:
+
+    BoxLayout:
+        size_hint_y: 0.1
+        Button:
+            text: "Deal"
+            on_press: root.deal_hand(2)
+        Button:
+            text: "Hit"
+            on_press: root.hit_me()
