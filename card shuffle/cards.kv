@@ -13,6 +13,13 @@
             size: self.size
             pos: self.pos
 
+<CardTable>:
+    BoxLayout:
+        size_hint_y: .2
+        Button:
+            text: "Deal"
+            on_press: root.hit_me_one()
+
 
 <CardTable>:
     card2:card2
@@ -28,9 +35,3 @@
             id: card0
         Spacer:
 
-<CardTable>:
-    BoxLayout:
-        size_hint_y: .2
-        Button:
-            text: "Deal"
-            on_press: root.hit_me_one()
