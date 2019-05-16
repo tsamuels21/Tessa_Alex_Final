@@ -42,6 +42,7 @@ class CardTable(BoxLayout):
             self.cards_one[i].image_file = filename
         print(self.hand_one)
 
+    def up_down(self):
         next_card = 5 - self.hand_two.count("")
         self.hand_two[next_card] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
         for i in range(next_card + 1):

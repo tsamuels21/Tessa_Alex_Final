@@ -1,12 +1,14 @@
 <Spacer@Widget>:
     size_hint_x: 0.25
 
+<Spacerr@Widget>:
+    size_hint_y: 2
+
 <Card@Widget>:
-    size_hint_x: None
-    size_hint_y: None
+    size_hint_x: 2
+    size_hint_y: 1
     image_file: "pic/gray_back.png"
 
-    size: [350,500]
     canvas:
         Rectangle:
             source: self.image_file
@@ -15,10 +17,12 @@
 
 <CardTable>:
     BoxLayout:
-        size_hint_y: .2
+        size_hint_y: 0.2
         Button:
             text: "Deal"
             on_press: root.hit_me_one()
+    BoxLayout:
+        size_hint_y: 0.4
 
 
 <CardTable>:
@@ -34,4 +38,20 @@
         Card:
             id: card0
         Spacer:
+    BoxLayout:
+        size_hint_y: 0.2
 
+
+<CardTable>:
+    high: high
+    low: low
+    BoxLayout:
+        orientation: "horizontal"
+        Button:
+            size: [40, 40]
+            text: "High"
+            id: high
+        Button:
+            size: [40, 40]
+            text: "Low"
+            id: low
