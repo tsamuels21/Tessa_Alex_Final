@@ -5,7 +5,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.core.window import Window
 
 Window.size = [400, 600]
-Window.clearcolor = [0,0,0,1]
+Window.clearcolor = [0, 0, 0, 1]
 
 
 class CardsApp(App):
@@ -30,11 +30,11 @@ class CardTable(BoxLayout):
         super().__init__(**kwargs)
         self.hand = ["" for x in range(5)]
         self.deck = Deck()
-        self.cards = [self.card0, self.card1, self.card2, self.card3, self.card4]
+        self.cards = [self.card0, self.card1]
 
-    def deal_hand(self, number_cards):
+    def deal_hand_one(self, number_cards):
         for card in self.cards:
-            card.image_file = "pic/gray_back.png"
+            card.image_file = "pic/gray_black.png"
 
         self.hand = ["" for x in range(5)]
 
@@ -46,7 +46,29 @@ class CardTable(BoxLayout):
             self.cards[i].image_file = filename
         print(self.hand)
 
-    def hit_me(self):
+    def hit_me_one(self):
+        next_card = 5 - self.hand.count("")
+        self.hand[next_card] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
+        for i in range(next_card + 1):
+            filename = "pic/"+self.hand[i]+".png"
+            self.cards[i].image_file = filename
+        print(self.hand)
+
+    def deal_hand_two(self, number_cards):
+        for card in self.cards:
+            card.image_file = "pic/gray_black.png"
+
+        self.hand = ["" for x in range(5)]
+
+        for i in range(number_cards):
+            self.hand[i] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
+
+        for i in range(number_cards):
+            filename = "pic/"+self.hand[i]+".png"
+            self.cards[i].image_file = filename
+        print(self.hand)
+
+    def hit_me_two(self):
         next_card = 5 - self.hand.count("")
         self.hand[next_card] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
         for i in range(next_card + 1):
