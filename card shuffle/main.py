@@ -31,8 +31,8 @@ class CardTable(BoxLayout):
         self.hand_one = ["" for x in range(5)]
         self.hand_two = ["" for x in range(5)]
         self.deck = Deck()
-        self.cards_one = [self.card0, self.card1]
-        self.cards_two = [self.card2, self.card3]
+        self.cards_one = [self.card0]
+        self.cards_two = [self.card2]
 
     def hit_me_one(self):
         next_card = 5 - self.hand_one.count("")

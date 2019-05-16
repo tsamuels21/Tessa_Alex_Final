@@ -6,7 +6,7 @@
     size_hint_y: None
     image_file: "pic/gray_back.png"
 
-    size: [76,96]
+    size: [350,500]
     canvas:
         Rectangle:
             source: self.image_file
@@ -16,36 +16,21 @@
 
 <CardTable>:
     card2:card2
-    card3:card3
+    card0:card0
 
     orientation: "vertical"
     BoxLayout:
         Spacer:
         Card:
             id: card2
-
-        Spacer:
-        Card:
-            id: card3
-
-
-<CardTable>:
-    card0:card0
-    card1:card1
-
-    orientation: "vertical"
-    BoxLayout:
         Spacer:
         Card:
             id: card0
-
         Spacer:
-        Card:
-            id: card1
 
-
+<CardTable>:
     BoxLayout:
-        size_hint_y: 0.1
+        size_hint_y: .2
         Button:
-            text: "Hit"
+            text: "Deal"
             on_press: root.hit_me_one()
