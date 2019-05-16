@@ -28,53 +28,26 @@ class Deck():
 class CardTable(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.hand = ["" for x in range(5)]
+        self.hand_one = ["" for x in range(5)]
+        self.hand_two = ["" for x in range(5)]
         self.deck = Deck()
-        self.cards = [self.card0, self.card1]
-
-    def deal_hand_one(self, number_cards):
-        for card in self.cards:
-            card.image_file = "pic/gray_black.png"
-
-        self.hand = ["" for x in range(5)]
-
-        for i in range(number_cards):
-            self.hand[i] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
-
-        for i in range(number_cards):
-            filename = "pic/"+self.hand[i]+".png"
-            self.cards[i].image_file = filename
-        print(self.hand)
+        self.cards_one = [self.card0, self.card1]
+        self.cards_two = [self.card2, self.card3]
 
     def hit_me_one(self):
-        next_card = 5 - self.hand.count("")
-        self.hand[next_card] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
+        next_card = 5 - self.hand_one.count("")
+        self.hand_one[next_card] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
         for i in range(next_card + 1):
-            filename = "pic/"+self.hand[i]+".png"
-            self.cards[i].image_file = filename
-        print(self.hand)
+            filename = "pic/"+self.hand_one[i]+".png"
+            self.cards_one[i].image_file = filename
+        print(self.hand_one)
 
-    def deal_hand_two(self, number_cards):
-        for card in self.cards:
-            card.image_file = "pic/gray_black.png"
-
-        self.hand = ["" for x in range(5)]
-
-        for i in range(number_cards):
-            self.hand[i] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
-
-        for i in range(number_cards):
-            filename = "pic/"+self.hand[i]+".png"
-            self.cards[i].image_file = filename
-        print(self.hand)
-
-    def hit_me_two(self):
-        next_card = 5 - self.hand.count("")
-        self.hand[next_card] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
+        next_card = 5 - self.hand_two.count("")
+        self.hand_two[next_card] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
         for i in range(next_card + 1):
-            filename = "pic/"+self.hand[i]+".png"
-            self.cards[i].image_file = filename
-        print(self.hand)
+            filename = "pic/"+self.hand_two[i]+".png"
+            self.cards_two[i].image_file = filename
+        print(self.hand_two)
 
 
 if __name__ == "__main__":

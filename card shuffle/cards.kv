@@ -15,30 +15,19 @@
 
 
 <CardTable>:
-    card0:card0
-    card1:card1
+    card2:card2
+    card3:card3
 
     orientation: "vertical"
     BoxLayout:
         Spacer:
         Card:
-            id: card0
+            id: card2
 
         Spacer:
         Card:
-            id: card1
+            id: card3
 
-
-    BoxLayout:
-        size_hint_y: 0.1
-        Button:
-            text: "Deal"
-            on_press: root.deal_hand_one(2)
-            on_press: root.deal_hand_two(2)
-        Button:
-            text: "Hit"
-            on_press: root.hit_me_one()
-            on_press: root.hit_me_two()
 
 <CardTable>:
     card0:card0
@@ -58,8 +47,5 @@
     BoxLayout:
         size_hint_y: 0.1
         Button:
-            text: "Deal"
-            on_press: root.deal_hand_two(2)
-        Button:
             text: "Hit"
-            on_press: root.hit_me_two()
+            on_press: root.hit_me_one()
