@@ -34,6 +34,8 @@ class CardTable(BoxLayout):
         self.deck = Deck()
         self.cards_one = [self.card0]
         self.cards_two = [self.card2]
+        self.number_one = []
+        self.number_two = []
 
     def hit_me_one(self):
         self.card2.image_file = "pic/gray_back.png"
@@ -43,6 +45,7 @@ class CardTable(BoxLayout):
             filename = "pic/"+self.hand_one[i]+".png"
             self.cards_one[i].image_file = filename
             self.history.append(self.hand_one)
+            self.number_one = [x[0] for x in self.hand_one]
             self.hand_one = ["" for x in range(1)]
         print(self.history)
 
@@ -53,11 +56,10 @@ class CardTable(BoxLayout):
             filename = "pic/"+self.hand_two[i]+".png"
             self.cards_two[i].image_file = filename
             self.history.append(self.hand_two)
+            self.number_two = [x[0] for x in self.hand_two]
             self.hand_two = ["" for x in range(1)]
         print(self.history)
-
-
-
+        print(self.number_two)
 
 
 if __name__ == "__main__":
