@@ -36,8 +36,10 @@ class CardTable(BoxLayout):
         self.cards_two = [self.card2]
         self.number_one = []
         self.number_two = []
+        self.number = []
 
     def hit_me_one(self):
+        self.number.clear()
         self.card2.image_file = "pic/gray_back.png"
         next_card = 1 - self.hand_one.count("")
         self.hand_one[next_card] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
@@ -46,9 +48,9 @@ class CardTable(BoxLayout):
             self.cards_one[i].image_file = filename
             self.history.append(self.hand_one)
             self.number_one = [x[0] for x in self.hand_one]
+            self.number.append(self.number_one)
             self.hand_one = ["" for x in range(1)]
         print(self.history)
-        print(self.number_one)
 
     def high_low(self):
         next_card = 1 - self.hand_two.count("")
@@ -58,12 +60,10 @@ class CardTable(BoxLayout):
             self.cards_two[i].image_file = filename
             self.history.append(self.hand_two)
             self.number_two = [x[0] for x in self.hand_two]
+            self.number.append(self.number_two)
             self.hand_two = ["" for x in range(1)]
         print(self.history)
-        print(self.number_two)
-
-
-
+        print("number:", self.number)
 
 
 if __name__ == "__main__":
