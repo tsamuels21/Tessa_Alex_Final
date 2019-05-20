@@ -56,10 +56,11 @@ class CardTable(BoxLayout):
             filename = "pic/"+self.hand_two[i]+".png"
             self.cards_two[i].image_file = filename
             self.history.append(self.hand_two)
-            self.number_two = [x[0] for x in self.hand_two]
             self.hand_two = ["" for x in range(1)]
         print(self.history)
-        print(self.number_two)
+
+
+
 
 
 if __name__ == "__main__":
