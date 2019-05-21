@@ -37,33 +37,42 @@ class CardTable(BoxLayout):
         self.number_one = []
         self.number_two = []
         self.number = []
+        self.x = 0
+
 
     def hit_me_one(self):
-        self.number.clear()
-        self.card2.image_file = "pic/gray_back.png"
-        next_card = 1 - self.hand_one.count("")
-        self.hand_one[next_card] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
-        for i in range(next_card + 1):
-            filename = "pic/"+self.hand_one[i]+".png"
-            self.cards_one[i].image_file = filename
-            self.history.append(self.hand_one)
-            self.number_one = [x[0] for x in self.hand_one]
-            self.number.append(self.number_one)
-            self.hand_one = ["" for x in range(1)]
-        print(self.history)
+        if self.x == 0:
+            self.x = 1
+            self.number.clear()
+            self.card2.image_file = "pic/gray_back.png"
+            next_card = 1 - self.hand_one.count("")
+            self.hand_one[next_card] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
+            for i in range(next_card + 1):
+                filename = "pic/" + self.hand_one[i] + ".png"
+                self.cards_one[i].image_file = filename
+                self.history.append(self.hand_one)
+                self.number_one = [x[0] for x in self.hand_one]
+                self.number.append(self.number_one)
+                self.hand_one = ["" for x in range(1)]
+            print(self.history)
 
     def high_low(self):
-        next_card = 1 - self.hand_two.count("")
-        self.hand_two[next_card] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
-        for i in range(next_card + 1):
-            filename = "pic/"+self.hand_two[i]+".png"
-            self.cards_two[i].image_file = filename
-            self.history.append(self.hand_two)
-            self.number_two = [x[0] for x in self.hand_two]
-            self.number.append(self.number_two)
-            self.hand_two = ["" for x in range(1)]
-        print(self.history)
-        print("number:", self.number)
+        if self.x == 1:
+            next_card = 1 - self.hand_two.count("")
+            self.hand_two[next_card] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
+            for i in range(next_card + 1):
+                filename = "pic/" + self.hand_two[i] + ".png"
+                self.cards_two[i].image_file = filename
+                self.history.append(self.hand_two)
+                self.number_two = [x[0] for x in self.hand_two]
+                self.number.append(self.number_two)
+                self.hand_two = ["" for x in range(1)]
+            print(self.history)
+            print("number:", self.number)
+            self.x = 0
+
+
+        
 
 
 if __name__ == "__main__":
