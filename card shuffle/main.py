@@ -30,7 +30,6 @@ class CardTable(BoxLayout):
         super().__init__(**kwargs)
         self.hand_one = ["" for x in range(1)]
         self.hand_two = ["" for x in range(1)]
-        self.history = []
         self.deck = Deck()
         self.cards_one = [self.card0]
         self.cards_two = [self.card2]
@@ -38,6 +37,9 @@ class CardTable(BoxLayout):
         self.number_two = []
         self.number = []
         self.x = 0
+        self.num_two = []
+        self.y = 0
+        self.cards = ["A", "K", "Q", "J", "1", "9", "8", "7", "6", "5", "4", "3", "2"]
 
 
     def hit_me_one(self):
@@ -50,11 +52,9 @@ class CardTable(BoxLayout):
             for i in range(next_card + 1):
                 filename = "pic/" + self.hand_one[i] + ".png"
                 self.cards_one[i].image_file = filename
-                self.history.append(self.hand_one)
                 self.number_one = [x[0] for x in self.hand_one]
                 self.number.append(self.number_one)
                 self.hand_one = ["" for x in range(1)]
-            print(self.history)
 
     def high_low(self):
         if self.x == 1:
@@ -63,16 +63,20 @@ class CardTable(BoxLayout):
             for i in range(next_card + 1):
                 filename = "pic/" + self.hand_two[i] + ".png"
                 self.cards_two[i].image_file = filename
-                self.history.append(self.hand_two)
                 self.number_two = [x[0] for x in self.hand_two]
                 self.number.append(self.number_two)
                 self.hand_two = ["" for x in range(1)]
-            print(self.history)
-            print("number:", self.number)
+            print("deal card:", self.cards.index(self.number[0][0]))
+            print("high low card:", self.cards.index(self.number[1][0]))
+            if self.high:
+                if self.cards.index(self.number[0][0]) > self.cards.index(self.number[1][0]):
+                    print("you win")
+
+            if self.low:
+                if self.cards.index(self.number[0][0]) < self.cards.index(self.number[1][0]):
+                    print("you win")
+
             self.x = 0
-
-
-        
 
 
 if __name__ == "__main__":
