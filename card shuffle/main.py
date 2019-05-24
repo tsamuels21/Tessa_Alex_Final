@@ -41,7 +41,6 @@ class CardTable(BoxLayout):
         self.y = 0
         self.cards = ["A", "K", "Q", "J", "1", "9", "8", "7", "6", "5", "4", "3", "2"]
 
-
     def hit_me_one(self):
         if self.x == 0:
             self.x = 1
@@ -56,7 +55,7 @@ class CardTable(BoxLayout):
                 self.number.append(self.number_one)
                 self.hand_one = ["" for x in range(1)]
 
-    def high_low(self):
+    def value(self):
         if self.x == 1:
             next_card = 1 - self.hand_two.count("")
             self.hand_two[next_card] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
@@ -68,15 +67,21 @@ class CardTable(BoxLayout):
                 self.hand_two = ["" for x in range(1)]
             print("deal card:", self.cards.index(self.number[0][0]))
             print("high low card:", self.cards.index(self.number[1][0]))
-            if self.high:
-                if self.cards.index(self.number[0][0]) > self.cards.index(self.number[1][0]):
-                    print("you win")
+        self.x = 0
 
-            if self.low:
-                if self.cards.index(self.number[0][0]) < self.cards.index(self.number[1][0]):
-                    print("you win")
+    def high_check(self):
+        self.value()
+        if self.cards.index(self.number[0][0]) > self.cards.index(self.number[1][0]):
+            print("you win")
+        else:
+            print("you lose")
 
-            self.x = 0
+    def low_check(self):
+        self.value()
+        if self.cards.index(self.number[0][0]) < self.cards.index(self.number[1][0]):
+            print("you win")
+        else:
+            print("you lose")
 
 
 if __name__ == "__main__":
