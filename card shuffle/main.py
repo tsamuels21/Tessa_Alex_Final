@@ -9,7 +9,7 @@ Window.size = [400, 600]
 Window.clearcolor = [0, 0, 0, 1]
 
 
-class CustPopupWin(Popup):
+class CustPopupLose(Popup):
     pass
 
 
@@ -47,9 +47,8 @@ class CardTable(BoxLayout):
         self.cards = ["A", "K", "Q", "J", "1", "9", "8", "7", "6", "5", "4", "3", "2"]
 
     def popup(self):
-        pop = CustPopupWin()
+        pop = CustPopupLose()
         pop.open()
-
     def hit_me_one(self):
         if self.x == 0:
             self.x = 1
@@ -81,16 +80,16 @@ class CardTable(BoxLayout):
     def high_check(self):
         self.value()
         if self.cards.index(self.number[0][0]) > self.cards.index(self.number[1][0]):
-            self.popup()
+            print("Correct")
         else:
-            print("you lose")
+            self.popup()
 
     def low_check(self):
         self.value()
         if self.cards.index(self.number[0][0]) < self.cards.index(self.number[1][0]):
-            self.popup()
+            print("Correct")
         else:
-            print("you lose")
+            self.popup()
 
 
 if __name__ == "__main__":
