@@ -3,9 +3,14 @@ import random
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.core.window import Window
+from kivy.uix.popup import Popup
 
 Window.size = [400, 600]
 Window.clearcolor = [0, 0, 0, 1]
+
+
+class CustPopupWin(Popup):
+    pass
 
 
 class CardsApp(App):
@@ -41,6 +46,10 @@ class CardTable(BoxLayout):
         self.y = 0
         self.cards = ["A", "K", "Q", "J", "1", "9", "8", "7", "6", "5", "4", "3", "2"]
 
+    def popup(self):
+        pop = CustPopupWin()
+        pop.open()
+
     def hit_me_one(self):
         if self.x == 0:
             self.x = 1
@@ -72,14 +81,14 @@ class CardTable(BoxLayout):
     def high_check(self):
         self.value()
         if self.cards.index(self.number[0][0]) > self.cards.index(self.number[1][0]):
-            print("you win")
+            self.popup()
         else:
             print("you lose")
 
     def low_check(self):
         self.value()
         if self.cards.index(self.number[0][0]) < self.cards.index(self.number[1][0]):
-            print("you win")
+            self.popup()
         else:
             print("you lose")
 

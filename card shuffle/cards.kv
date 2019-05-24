@@ -15,6 +15,16 @@
             size: self.size
             pos: self.pos
 
+<CustPopupWin@Popup>:
+    size_hint_x: 0.5
+    size_hint_y: None
+    auto_dismiss: True
+    Button:
+        size_hint_y: None
+        height: 40
+        text: "CLOSE ME"
+        on_press: root.dismiss()
+
 <CardTable>:
     BoxLayout:
         size_hint_y: 0.2
@@ -58,3 +68,5 @@
             text: "Low"
             id: low
             on_press: root.low_check()
+
+
