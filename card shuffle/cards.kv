@@ -30,6 +30,7 @@
     card0:card0
     high: high
     low: low
+    score: 0
     orientation: "vertical"
 
     BoxLayout:
@@ -51,7 +52,7 @@
         Label:
             font_size: 30
             color: (0, 0, 0, 1)
-            text: "Score: "
+            text: "Score: " + str(root.score)
             size: me.size
             pos: me.pos
 
