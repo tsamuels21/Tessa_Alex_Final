@@ -45,10 +45,12 @@ class CardTable(BoxLayout):
         self.num_two = []
         self.y = 0
         self.cards = ["A", "K", "Q", "J", "1", "9", "8", "7", "6", "5", "4", "3", "2"]
+        self.score = 0
 
     def popup(self):
         pop = CustPopupLose()
         pop.open()
+
     def hit_me_one(self):
         if self.x == 0:
             self.x = 1
@@ -81,15 +83,20 @@ class CardTable(BoxLayout):
         self.value()
         if self.cards.index(self.number[0][0]) > self.cards.index(self.number[1][0]):
             print("Correct")
+            self.score += 1
+            print(self.score)
         else:
             self.popup()
-
+            self.score = 0
     def low_check(self):
         self.value()
         if self.cards.index(self.number[0][0]) < self.cards.index(self.number[1][0]):
             print("Correct")
+            self.score += 1
+            print(self.score)
         else:
             self.popup()
+            self.score = 0
 
 
 if __name__ == "__main__":
