@@ -1,8 +1,7 @@
 <Spacer@Widget>:
     size_hint_x: 0.25
 
-<Spacerr@Widget>:
-    size_hint_y: 2
+
 
 <Card@Widget>:
     size_hint_x: 2
@@ -27,21 +26,40 @@
         on_press: root.dismiss()
 
 <CardTable>:
+    card2:card2
+    card0:card0
+    high: high
+    low: low
+    orientation: "vertical"
+
     BoxLayout:
         size_hint_y: 0.2
         Button:
+            font_size: 20
             text: "Deal"
             on_press: root.hit_me_one()
+
+    Widget:
+        size_hint_y: 0.3
+        id: me
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            font_size: 30
+            color: (0, 0, 0, 1)
+            text: "Score: "
+            size: me.size
+            pos: me.pos
+
     BoxLayout:
-        size_hint_y: 0.4
+        size_hint_y: 0.1
 
-
-<CardTable>:
-    card2:card2
-    card0:card0
-
-    orientation: "vertical"
     BoxLayout:
+        size_hint_y: 0.7
         Spacer:
         Card:
             id: card2
@@ -50,21 +68,20 @@
             id: card0
         Spacer:
     BoxLayout:
-        size_hint_y: 0.2
+        size_hint_y: 0.1
 
-
-<CardTable>:
-    high: high
-    low: low
     BoxLayout:
         orientation: "horizontal"
+        size_hint_y: 0.4
         Button:
+            font_size: 20
             size: [40, 40]
             text: "High"
             id: high
             on_press: root.high_check()
 
         Button:
+            font_size: 20
             size: [40, 40]
             text: "Low"
             id: low

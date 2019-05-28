@@ -88,6 +88,7 @@ class CardTable(BoxLayout):
         else:
             self.popup()
             self.score = 0
+
     def low_check(self):
         self.value()
         if self.cards.index(self.number[0][0]) < self.cards.index(self.number[1][0]):
