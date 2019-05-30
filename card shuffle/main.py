@@ -1,12 +1,13 @@
 import random
-
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.core.window import Window
 from kivy.uix.popup import Popup
 
+
 Window.size = [400, 600]
 Window.clearcolor = [0, 0, 0, 1]
+
 
 
 class CustPopupLose(Popup):
