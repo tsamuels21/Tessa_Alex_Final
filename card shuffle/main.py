@@ -57,7 +57,7 @@ class CardTable(BoxLayout):
         if self.x == 0:
             self.x = 1
             self.number.clear()
-            self.card2.image_file = "pic/gray_back.png"
+            self.card2.image_file = "pic/red_back.png"
             next_card = 1 - self.hand_one.count("")
             self.hand_one[next_card] = self.deck.card_names.pop(random.randrange(len(self.deck.card_names)))
             for i in range(next_card + 1):
@@ -93,8 +93,8 @@ class CardTable(BoxLayout):
         self.y = 0
         self.cards = ["A", "K", "Q", "J", "1", "9", "8", "7", "6", "5", "4", "3", "2"]
         self.score = 0
-        self.card2.image_file = "pic/gray_back.png"
-        self.card0.image_file = "pic/gray_back.png"
+        self.card2.image_file = "pic/red_back.png"
+        self.card0.image_file = "pic/red_back.png"
         self.popclose()
 
     def high_check(self):
