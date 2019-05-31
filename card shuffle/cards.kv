@@ -14,18 +14,20 @@
             size: self.size
             pos: self.pos
 
-<CustPopupLose@Popup>:
+<CustPopupLose>:
     size_hint_x: .5
     size_hint_y: None
     title: "You Lost"
     auto_dismiss: True
+    id: popup
     Button:
         size_hint_y: None
         height: 40
         text: "Replay"
-        on_press: root.dismiss()
+        on_press: popup.table.reset()
 
 <CardTable>:
+    id: table
     card2:card2
     card0:card0
     high: high

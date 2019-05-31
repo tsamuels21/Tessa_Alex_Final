@@ -15,7 +15,7 @@ class CardsApp(App):
 
 
 class CustPopupLose(Popup):
-    pass
+    table = None
 
 
 class Deck():
@@ -44,10 +44,14 @@ class CardTable(BoxLayout):
         self.y = 0
         self.cards = ["A", "K", "Q", "J", "1", "9", "8", "7", "6", "5", "4", "3", "2"]
         self.score = 0
+        self.pop = CustPopupLose()
+        self.pop.table = self
 
     def popup(self):
-        pop = CustPopupLose()
-        pop.open()
+        self.pop.open()
+
+    def popclose(self):
+        self.pop.dismiss()
 
     def hit_me_one(self):
         if self.x == 0:
@@ -76,8 +80,6 @@ class CardTable(BoxLayout):
         self.x = 0
 
     def reset(self):
-        self.card2.image_file = "pic/gray_back.png"
-        self.card0.image_file = "pic/gray_back.png"
         self.hand_one = ["" for x in range(1)]
         self.hand_two = ["" for x in range(1)]
         self.deck = Deck()
@@ -91,6 +93,9 @@ class CardTable(BoxLayout):
         self.y = 0
         self.cards = ["A", "K", "Q", "J", "1", "9", "8", "7", "6", "5", "4", "3", "2"]
         self.score = 0
+        self.card2.image_file = "pic/gray_back.png"
+        self.card0.image_file = "pic/gray_back.png"
+        self.popclose()
 
     def high_check(self):
         self.value()
@@ -98,7 +103,6 @@ class CardTable(BoxLayout):
             self.score += 1
         else:
             self.popup()
-            self.reset()
 
     def low_check(self):
         self.value()
@@ -106,7 +110,6 @@ class CardTable(BoxLayout):
             self.score += 1
         else:
             self.popup()
-            self.reset()
 
 
 if __name__ == "__main__":
